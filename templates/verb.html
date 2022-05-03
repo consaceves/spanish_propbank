@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>{% block title %} {{ verb['lemma'] }} {% endblock %}</h2>
+    <hr>
+    {% for frameset in verb['framesets'] %}
+        <h5>{{ frameset['comment'] }}</h5>
+        {% for role in frameset['roles'] %}
+            <span class="badge badge-primary">{{ role }}</span>
+            <p>{{ frameset['roles'][role] }}</p>
+        {% endfor %}
+    <hr>
+    {% endfor %}
+{% endblock %}

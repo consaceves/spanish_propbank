@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} PropBank Spanish {% endblock %}</h1>
+    {% for verb in verbs %}
+        <a href="{{url_for('get_verb')}}">
+            <h2>{{ verb['lemma'] }}</h2>
+        </a>
+        {% for frameset in verb['framesets'] %}
+            <p>{{ frameset['comment'] }}</p>
+            {% for role in frameset['roles'] %}
+                <!-- TODO: Change badge color based on agent role -->
+                <span class="badge badge-primary">{{ role }}</span>
+            {% endfor %}
+            <hr>
+        {% endfor %}
+    {% endfor %}
+{% endblock %}

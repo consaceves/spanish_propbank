@@ -1,0 +1,23 @@
+{
+    "lemma": "sentir",
+    "framesets": [
+        {
+            "id": 123,
+            "verb": "sentir.1",
+            "comment": "Percibir, notar",
+            "roles": {
+                "arg0": "Persona que percibe",
+                "arg1": "Objeto percibido"
+            }
+        },
+        {
+            "id": 124,
+            "verb": "sentir.2",
+            "comment": "Lamentar algo que ha ocurrido, preferir que no hubiera ocurrido",
+            "roles": {
+                "arg0": "Persona que lamenta",
+                "arg1": "Evento ocurrido"
+            }
+        }
+    ]
+}

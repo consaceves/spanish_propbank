@@ -1,0 +1,27 @@
+{
+    "lemma": "dar",
+    "framesets": [
+        {
+            "comment": "Hacer tener, proporcionar, ofrecer",
+            "roles": {
+                "arg0": "Donante",
+                "arg1": "Poseedor final",
+                "arg2": "Posesión"
+            }
+        },
+        {
+            "comment": "Estar orientado en determinada dirección, ir a desembocar a determinado sitio",
+            "roles": {
+                "arg0": "Agente de la acción",
+                "arg1": "Orientación"
+            }
+        },
+        {
+            "comment": "Golpear, pegar, chocar",
+            "roles": {
+                "arg0": "Iniciador del contacto",
+                "arg1": "Contactante"
+            }
+        }
+    ]
+}

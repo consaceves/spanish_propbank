@@ -1,0 +1,106 @@
+{ 
+    "arguments": [
+        {
+            "role": "arg0",
+            "description": "agent"
+        },
+        {
+            "role": "arg1",
+            "description": "patient"   
+        },
+        {
+            "role": "arg2",
+            "description": "instrument, benefactive, attribute"   
+        },
+        {
+            "role": "arg3",
+            "description": "starting point, benefactive, attribute"  
+        },
+        {
+            "role": "arg4",
+            "description": "ending point"  
+        },
+        {
+            "role": "argm",
+            "description": "modifier"  
+        }
+    ],
+    "modifiers": [
+        {
+            "modifier": "COM",
+            "description": "comitative"
+        },
+        {
+            "modifier": "LOC",
+            "description": "locative"   
+        },
+        {
+            "modifier": "DIR",
+            "description": "directional"   
+        },
+        {
+            "modifier": "GOL",
+            "description": "goal"
+        },
+        {
+            "modifier": "MNR",
+            "description": "manner"   
+        },
+        {
+            "modifier": "TMP",
+            "description": "temporal"   
+        },
+        {
+            "modifier": "EXT",
+            "description": "extent"   
+        },
+        {
+            "modifier": "REC",
+            "description": "reciprocals"
+        },
+        {
+            "modifier": "PRD",
+            "description": "secondary predication"   
+        },
+        {
+            "modifier": "PRP",
+            "description": "purpose"   
+        },
+        {
+            "modifier": "CAU",
+            "description": "cause"   
+        },
+        {
+            "modifier": "DIS",
+            "description": "discourse"   
+        },
+        {
+            "modifier": "ADV",
+            "description": "adverbials"
+        },
+        {
+            "modifier": "ADJ",
+            "description": "adjectival"   
+        },
+        {
+            "modifier": "MOD",
+            "description": "modal"   
+        },
+        {
+            "modifier": "NEG",
+            "description": "negation"   
+        },
+        {
+            "modifier": "DSP",
+            "description": "direct speech"
+        },
+        {
+            "modifier": "LVB",
+            "description": "light verb"   
+        },
+        {
+            "modifier": "CXN",
+            "description": "construction"   
+        }
+    ]
+}

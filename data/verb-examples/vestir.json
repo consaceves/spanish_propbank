@@ -1,0 +1,14 @@
+{
+    "lemma": "vestir",
+    "framesets": [
+        {
+            "id": 126,
+            "verb": "vestir.1",
+            "comment": "Poner o llevar puesta [ropa]",
+            "roles": {
+                "arg0": "Persona",
+                "arg1": "Ropa"
+            }
+        }
+    ]
+}

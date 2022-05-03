@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %} Create a New Frameset {% endblock %}</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="lemmas">Verb lemma</label>
+        <input id="lemmainput"
+               list="lemmas"
+               class="form-control"
+               placeholder="Choose from dropdown list (AnCora verb list)">
+        <datalist id="lemmas" onChange="update()">
+            {% for verb in data['verblist'] %}
+            <option value="{{ verb }}"></option>
+            {% endfor %}
+        </datalist>
+    </div>
+
+    <div class="form-group">
+        <label for="verb_senses">Verb sense description</label>
+        <input list="verb_senses" 
+               class="form-control"
+               placeholder="Choose from dropdown list (ADESSE verb senses) or write your own">
+        <datalist id="verb_senses">
+        </datalist>
+    </div>
+
+    <div class="form-group">
+        <label for="args">Arguments</label>
+        <select id="args" width=300 style="width: 350px"
+                size="6" class="form-control" 
+                multiple>
+            {% for arg in data['args'] %}
+            <option value="{{ arg['role'].upper() + ': ' + arg['description'] }}">{{ arg['role'].upper() + ': ' + arg['description'] }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="content">Description</label>
+        <textarea name="content" placeholder="Post content"
+                  class="form-control">{{ request.form['content'] }}</textarea>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    <hr>
+    <!-- TODO: PropBank argument descriptions for reference -->
+</form>
+{% endblock %}

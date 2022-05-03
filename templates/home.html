@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 id="propbank-spanish-with-ancora-adesse">PropBank Spanish with AnCora + ADESSE</h1>
+    <p>Ideally, this project could become
+    a Propbank instance editor with improved 
+    user experience than Jubilee and would include
+    the connection with ADESSE (in the case of Spanish).
+    The project also attempts to include a lot more
+    information found in PropBank&#39;s annotation
+    guidelines to aid the annotator&#39;s process.</p>
+    <p>At the moment, the project can do or has the following:</p>
+    <ul>
+    <li>obtain all verb instances from AnCora Spanish corpus</li>
+    <li>create verb instances</li>
+    <li>create frameset instances</li>
+    <li>display list of verbs in html webpage</li>
+    <li>display verb instances in html webpage</li>
+    <li>form to create frameset instance</li>
+    </ul>
+    <p>To run and see -work-in-progress- web interace:</p>
+    <pre><code class="lang-bash">$ <span class="hljs-keyword">python3</span> home.<span class="hljs-keyword">py</span>
+    </code></pre>
+    <h2 id="propbank-annotation">PropBank Annotation</h2>
+    <ol>
+    <li>Argument labeling</li>
+    <li>Annotation of modifiers</li>
+    <li>Choosing a sense for the predicate</li>
+    <li>Creating links for empty categories, relative clauses, and reduced relatives</li>
+    </ol>
+    <h3 id="propbankannotation-json">PropBankAnnotation.json</h3>
+    <p>This file details PropBank&#39;s annotation guidelines to
+    ensure consistency.</p>
+    <h2 id="verbs">Verbs</h2>
+    <pre><code class="lang-json">{
+        <span class="hljs-string">"lemma"</span>: <span class="hljs-string">"sentir"</span>,
+        <span class="hljs-string">"framesets"</span>: [
+            {
+                <span class="hljs-string">"id"</span>: <span class="hljs-number">123</span>,
+                <span class="hljs-string">"verb"</span>: <span class="hljs-string">"sentir.1"</span>,
+                <span class="hljs-string">"comment"</span>: <span class="hljs-string">"Percibir, notar"</span>,
+                <span class="hljs-string">"roles"</span>: {
+                    <span class="hljs-string">"arg0"</span>: <span class="hljs-string">"Persona que percibe"</span>,
+                    <span class="hljs-string">"arg1"</span>: <span class="hljs-string">"Objeto percibido"</span>
+                }
+            },
+            {
+                <span class="hljs-string">"id"</span>: <span class="hljs-number">124</span>,
+                <span class="hljs-string">"verb"</span>: <span class="hljs-string">"sentir.2"</span>,
+                <span class="hljs-string">"comment"</span>: <span class="hljs-string">"Lamentar algo que ha ocurrido, preferir 
+                        que no hubiera ocurrido"</span>,
+                <span class="hljs-string">"roles"</span>: {
+                    <span class="hljs-string">"arg0"</span>: <span class="hljs-string">"Persona que lamenta"</span>,
+                    <span class="hljs-string">"arg1"</span>: <span class="hljs-string">"Evento ocurrido"</span>
+                }
+            }
+        ]
+    }
+    </code></pre>
+    <h2 id="framesets">Framesets</h2>
+    <pre><code class="lang-json">{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"111"</span>,
+    <span class="hljs-attr">"verb"</span>: <span class="hljs-string">"vestir.1"</span>,
+    <span class="hljs-attr">"comment"</span>: <span class="hljs-string">"Poner o llevar puesta [ropa]"</span>,
+    <span class="hljs-attr">"roles"</span>: {
+        <span class="hljs-attr">"arg0"</span>: <span class="hljs-string">"Persona que viste"</span>,
+        <span class="hljs-attr">"arg1"</span>: <span class="hljs-string">"Persona usando ropa"</span>,
+        <span class="hljs-attr">"arg2"</span>: <span class="hljs-string">"Ropa"</span>
+    }
+    }
+    </code></pre>
+    <h3 id="creating-a-new-frameset">Creating a new frameset</h3>
+    <p>The user will be prompted with AnCora verb list. Once the desired verb is selected, the ADESSE verb senses will be updated and will be found in the dropdown menu of &#39;Verb sense description&#39;. The user must then specify the arguments of the frameset.</p>
+    <h2 id="adesse-handler">ADESSE Handler</h2>
+    <p>To facilitate annotation/creation of framesets we include an ADESSE handler that
+    obtains the verb senses and verb definitions listed on the database. When creating
+    a frameset a user will be prompted with the verb senses listed on ADESSE and can
+    additionally create a new one if the one(s) listed do not match the sentence context.</p>
+    <p>Reflexive verbs are expressed differently in ADESSE than in PropBank.
+    PropBank considers: to dress and to dress oneself as two different verb
+    senses for the verb lemma &#39;dress&#39;. In terms of argument structure,
+    PropBank marks arg0 as the &#39;person that dresses&#39;, arg1 as the &#39;person using clothes&#39;, and arg2 as &#39;clothes&#39; to the sense &#39;to dress&#39;. For the sense &#39;to dress oneself&#39; it marks arg0 and arg1 as the same argument. Meaning that the roleset for that verb sense is: arg0 and arg1 only. ADDESSE keeps the arg1 and simply marks it as REFL. For the sake of consistency with PropBank, annotations should follow PropBank&#39;s guidelines. ADESSE will be used only as a reference guide for verb sense description, not argument structure. </p>
+    <p>Eventually, the goal will be to present the ADESSE entry for the verb alongside the annotated version of PropBank. To have the information of both resources in a single verb instance page. As the English PropBank counterpart does with FrameNet and VerbNet.</p>
+
+{% endblock %}
